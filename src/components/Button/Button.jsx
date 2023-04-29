@@ -1,6 +1,6 @@
-export default function Button({value}) {
+export default function Button({ value, onClick }) {
     return (
-        <button>
+        <button onClick={onClick}>
             {value}
         </button>
     )
