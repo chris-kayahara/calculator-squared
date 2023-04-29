@@ -1,0 +1,23 @@
+.calc {
+
+    width: 10rem;
+
+    &__btn-container{
+        display: flex;
+        flex-direction: row;
+        gap: .625rem;
+    }
+
+    &__number-pad{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: .625rem;
+    }
+
+    &__operators{
+        display: flex;
+        flex-direction: column;
+        gap: .625rem;
+    }
+}
