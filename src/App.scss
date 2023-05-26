@@ -1,6 +1,18 @@
 .calc {
 
-    width: 10rem;
+    max-width: 40rem;
+    padding: 1rem;
+    margin: 0 auto;
+
+    &__screen-container {
+        height: 15rem;
+    }
+
+    &__square-container {
+        display: flex;
+        flex-direction: row;
+        gap: .625rem;
+    }
 
     &__btn-container{
         display: flex;
@@ -9,6 +21,7 @@
     }
 
     &__number-pad{
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, 1fr);

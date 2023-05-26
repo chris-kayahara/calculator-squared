@@ -1,6 +1,8 @@
+import './Button.scss'
+
 export default function Button({ value, onClick }) {
     return (
-        <button onClick={onClick}>
+        <button className="button" onClick={onClick}>
             {value}
         </button>
     )

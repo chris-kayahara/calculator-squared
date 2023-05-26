@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Button from './components/Button/Button'
 import Screen from './components/Screen/Screen'
+import Square from './components/Square/Square'
 
 import './App.scss'
 
@@ -18,10 +19,10 @@ function App() {
 
   const [showResult, SetShowResult] = useState(false);
   const [calc, setCalc] = useState({
-    num1: 0,
+    num1: "",
     operator: "",
-    num2: 0,
-    result: 0
+    num2: "",
+    result: ""
   })
 
   function handleNumberClick(e){
@@ -75,19 +76,23 @@ function App() {
     e.preventDefault();
     SetShowResult(false);
     setCalc({
-      num1: 0,
+      num1: "",
       operator: "",
-      num2: 0,
-      result: 0
+      num2: "",
+      result: ""
     })
   }
 
   return (
     <div className="calc">
-      <div className="calc__graphic-container">
-
+      <div className="calc__screen-container">
+        <div className="calc__square-container">
+          <Square value={calc.num1}/>
+          <Square value={calc.num2}/>
+          <Square value={calc.result}/>
+        </div>
+        <Screen calc={calc}/>
       </div>
-      <Screen value={calc.num2 === 0 ? calc.num1 : calc.num2}/>
       <div className="calc__btn-container">
         <div className="calc__number-pad">
           {numberValues.flat().map((number, i) => {
