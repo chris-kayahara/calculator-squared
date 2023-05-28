@@ -16,7 +16,10 @@ export default function Screen({ calc }) {
                 =
             </div>
             <div className="screen__number">
-                {calc.result}
+                {calc.result 
+                    ? Math.round(calc.result * 100) / 100 
+                    : ""
+                }
             </div>
         </div>
     )

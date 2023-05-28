@@ -1,32 +1,14 @@
 $tablet-breakpoint: 48rem; // 768px
 $desktop-breakpoint: 80rem; // 1280px
 
-$button-radius: 8px;
-$card-radius: 8px;
-
-$regular-font: 400;
-$semi-bold-font: 600;
-$bold-font: 700;
-
-$body-font: 'Verdana', Geneva, Tahoma, sans-serif;
-
-$black:#1c1c1c;
-$dark-grey: #3D3D3F;
-$medium-grey: #959595;
-$light-grey: #f4f4f4;
-$white: #FFFFFF;
-
-$extra-dark-color: #3D3D3F;
-$dark-color-pale: #ffccc6;
-$dark-color: #b52512;
-$medium-color: #FD5B44;
-$light-color: #fc9183; //Primary
-$extra-list-color: #ffbdb5;
-
-$green: #158463;
-$blue: #2E66E5;
-$red: #C94515;
-
-.font{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+$background-color: #A9D9D4;
+$calc-color: #FFB28F;
+$button-color: #518C86;
+$button-operator-color: blue;
+$button-equals-color: green;
+$button-clear-decimal-color: purple;
+$button-text-color: white;
+$screen-color: rgb(239, 239, 239);
+$screen-digit-color: rgb(72, 72, 72);
+$screen-digit-background: lightgrey;
+$square-color: red;

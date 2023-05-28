@@ -1,17 +1,35 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
+
 .calc {
 
-    max-width: 40rem;
+    background-color: $calc-color;
+    height: 100%;
+    max-width: 30rem;
+    min-width: 20rem;
+    max-height: 46rem;
+    flex-grow: 1;
     padding: 1rem;
     margin: 0 auto;
+    border-radius: 8px;
 
     &__screen-container {
         height: 15rem;
+        background-color: $screen-color;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     &__square-container {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         gap: .625rem;
+        height: 9rem;
     }
 
     &__btn-container{
@@ -26,11 +44,13 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, 1fr);
         grid-gap: .625rem;
+        margin-bottom: 1rem;
     }
 
     &__operators{
         display: flex;
         flex-direction: column;
         gap: .625rem;
+        width: 20%;
     }
 }

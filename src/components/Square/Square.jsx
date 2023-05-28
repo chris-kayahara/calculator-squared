@@ -4,7 +4,7 @@ export default function Square({value}) {
     return(
         <div 
             className="square"
-            style={{width: value, height: value}}>
+            style={{width: Math.sqrt(value)*10, height: Math.sqrt(value)*10}}>
         </div>
     )
 }
