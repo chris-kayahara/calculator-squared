@@ -12,13 +12,14 @@
     color: $button-text-color;
 
     &__operator {
-        width: 100%;
-        height: 5rem;
-        font-size: 2rem;
-        border-radius: 8px;
-        outline: none;
-        border: none;
         background-color: $button-operator-color;
-        color: $button-text-color;
+    }
+
+    &__equals {
+        background-color: $button-equals-color;
+    }
+
+    &__clear {
+        background-color: $button-clear-decimal-color;
     }
 }

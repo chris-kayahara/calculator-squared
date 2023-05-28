@@ -17,15 +17,19 @@
         height: 15rem;
         background-color: $screen-color;
         border-radius: 8px;
-        padding: 2rem;
+        padding: 1rem;
         margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     &__square-container {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         gap: .625rem;
-        height: 8rem;
+        height: 9rem;
     }
 
     &__btn-container{
