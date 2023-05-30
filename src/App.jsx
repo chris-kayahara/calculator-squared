@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Button from './components/Button/Button'
 import Screen from './components/Screen/Screen'
-import Square from './components/Square/Square'
+import SquareContainer from './components/SquareContainer/SquareContainer'
 
 import './App.scss'
 
@@ -22,8 +22,10 @@ function App() {
     num1: "",
     operator: "",
     num2: "",
-    result: ""
+    result: "",
   })
+  const [highestNumber, setHighestNumber] = useState("num1");
+  const [showSquares, setShowSquare] = useState(false);
 
   function handleNumberClick(e){
     e.preventDefault();
@@ -38,7 +40,7 @@ function App() {
       setCalc({
         ...calc,
         num2: Number(calc.num2 + value)
-    })}
+      })}
   }
 
   function handleOperatorClick(e) {
@@ -66,31 +68,44 @@ function App() {
           ? calc.num1 - calc.num2
           : calc.operator === "x"
           ? calc.num1 * calc.num2
-          : calc.num1 / calc.num2
-    })
+          : calc.num1 / calc.num2,
+    });
     console.log(calc);
     SetShowResult(true);
+    setShowSquare(true);
   }
+
+  useEffect(() => {
+    (calc.result > calc.num1) & (calc.result > calc.num2)
+      ? setHighestNumber("result")
+      : calc.num2 > calc.num1
+      ? setHighestNumber("num2")
+      : setHighestNumber("num1")
+  }, [calc])
 
   function handleClearClick(e) {
     e.preventDefault();
     SetShowResult(false);
+    setShowSquare(false);
     setCalc({
       num1: "",
       operator: "",
       num2: "",
-      result: ""
+      result: "",
     })
+    setHighestNumber("num1");
+
   }
+
+  // first number click make square max height and width
+  // second click check if number is larger than first number
+    // if yes then set second number to max height and width
+
 
   return (
     <div className="calc">
       <div className="calc__screen-container">
-        <div className="calc__square-container">
-          <Square value={calc.num1}/>
-          <Square value={calc.num2}/>
-          <Square value={calc.result}/>
-        </div>
+        <SquareContainer calc={calc} highestNumber={highestNumber} showSquares={showSquares}/>
         <Screen calc={calc}/>
       </div>
       <div className="calc__btn-container">
