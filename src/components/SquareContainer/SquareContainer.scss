@@ -1,0 +1,18 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.square-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 9rem;
+
+    &__square{
+        justify-content: center;
+        align-items: center;
+        height: 0;
+        background-color: $square-color;
+    }
+}
