@@ -7,12 +7,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     height: 9rem;
 
     &__square{
-        justify-content: center;
-        align-items: center;
         height: 0;
         background-color: $square-color;
     }
@@ -22,7 +20,7 @@
     }
 
     &__symbols {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: $screen-digit-color;
     }
 }
