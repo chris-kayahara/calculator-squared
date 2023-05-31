@@ -128,6 +128,10 @@ function App() {
 
   return (
     <div className="calc">
+      <div className="calc__heading-container">
+        <h1 className="calc__heading">Calculator&sup2;</h1>
+        <h2 className="calc__heading">Chris Kayahara</h2>
+      </div>
       <div className="calc__screen-container">
         <SquareContainer calc={calc} highestNumber={highestNumber} showSquares={showSquares}/>
         <Screen calc={calc}/>

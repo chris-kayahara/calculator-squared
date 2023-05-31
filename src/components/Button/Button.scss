@@ -11,15 +11,31 @@
     background-color: $button-color;
     color: $button-text-color;
 
+    &:hover{
+        background-color: #3370a1;
+    }
+
     &__operator {
         background-color: $button-operator-color;
+
+        &:hover{
+            background-color: #379a86
+        }
     }
 
     &__equals {
         background-color: $button-equals-color;
+
+        &:hover{
+            background-color: #bd402d;
+        }
     }
 
     &__clear {
         background-color: $button-clear-decimal-color;
+
+        &:hover{
+            background-color: #3c4245;
+        }
     }
 }
