@@ -47,15 +47,23 @@ function App() {
     e.preventDefault();
     
     const value = e.target.innerHTML;
-    setCalc({
-      ...calc,
-      num1: !calc.num1.includes(".") 
-        ? calc.num1 + value 
-        : calc.num1,
-      num2: !calc.num2.includes(".") 
-        ? calc.num2 + value 
-        : calc.num2,
-    });
+    if (!calc.num1) {
+      return
+    } else if (!calc.num2) {
+      setCalc({
+        ...calc,
+        num1: !calc.num1.includes(".") 
+          ? calc.num1 + value 
+          : calc.num1,
+      });
+    } else if (calc.num2) {
+      setCalc({
+        ...calc,
+        num2: !calc.num2.includes(".") 
+          ? calc.num2 + value 
+          : calc.num2,
+      });
+    }
   }
 
   function handleOperatorClick(e) {
@@ -133,7 +141,7 @@ function App() {
                 key={i}
                 onClick={number === "C"
                   ? handleClearClick
-                  : number === "C"
+                  : number === "."
                   ? handleDecimalClick
                   : handleNumberClick}/>
             )
