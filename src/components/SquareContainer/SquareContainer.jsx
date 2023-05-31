@@ -1,8 +1,6 @@
 import './SquareContainer.scss'
 
 export default function SquareContainer({calc, highestNumber, showSquares}) {
-    console.log(highestNumber);
-    console.log(showSquares)
     let num1 = calc.num1;
     let num2 = calc.num2;
     let result = calc.result;
@@ -10,6 +8,13 @@ export default function SquareContainer({calc, highestNumber, showSquares}) {
     let num1Square = 0;
     let num2Square = 0;
     let resultSquare = 0;
+    let display = "";
+
+    if (showSquares) {
+        display = "square-container__symbols";
+    } else if (!showSquares) {
+        display = "square-container__hidden";
+    }
 
     switch (highestNumber) {
         case "num1":
@@ -38,9 +43,10 @@ export default function SquareContainer({calc, highestNumber, showSquares}) {
                     width:`${num1Square}%`, 
                     paddingBottom: `${num1Square}%`
                 } : {
-                    display: showSquares ? 'flex' : 'hidden'}}
+                    display: 'hidden'}}
                 >
             </div>
+            <div className={display}>{calc.operator}</div>
             <div
                 id="num2"
                 className="square-container__square"
@@ -48,8 +54,9 @@ export default function SquareContainer({calc, highestNumber, showSquares}) {
                     width:`${num2Square}%`, 
                     paddingBottom: `${num2Square}%`
                 } : {
-                    display: showSquares ? 'flex' : 'hidden'}}>
+                    display: 'hidden'}}>
             </div>
+            <div className={display}>=</div>
             <div
                 id="result"
                 className="square-container__square"
@@ -57,7 +64,7 @@ export default function SquareContainer({calc, highestNumber, showSquares}) {
                     width:`${resultSquare}%`, 
                     paddingBottom: `${resultSquare}%`
                 } : {
-                    display: showSquares ? 'flex' : 'hidden'}}>
+                    display: 'hidden'}}>
             </div>
         </div>
     )

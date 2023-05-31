@@ -34,13 +34,28 @@ function App() {
     if (calc.operator === "") {
       setCalc({
         ...calc,
-        num1: Number(calc.num1 + value)
+        num1: calc.num1 + value
       })
     } else {
       setCalc({
         ...calc,
-        num2: Number(calc.num2 + value)
+        num2: calc.num2 + value
       })}
+  }
+
+  function handleDecimalClick(e) {
+    e.preventDefault();
+    
+    const value = e.target.innerHTML;
+    setCalc({
+      ...calc,
+      num1: !calc.num1.includes(".") 
+        ? calc.num1 + value 
+        : calc.num1,
+      num2: !calc.num2.includes(".") 
+        ? calc.num2 + value 
+        : calc.num2,
+    });
   }
 
   function handleOperatorClick(e) {
@@ -58,21 +73,22 @@ function App() {
 
   function handleEqualClick(e){
     e.preventDefault();
-
-    setCalc({
-      ...calc,
-      result: 
-        calc.operator === "+"
-          ? calc.num1 + calc.num2
-          : calc.operator === "-"
-          ? calc.num1 - calc.num2
-          : calc.operator === "x"
-          ? calc.num1 * calc.num2
-          : calc.num1 / calc.num2,
-    });
-    console.log(calc);
-    SetShowResult(true);
-    setShowSquare(true);
+    if (!(calc.num1 === "") && !(calc.operator === "") && !(calc.num2 === "")) {
+      setCalc({
+        ...calc,
+        result: 
+          calc.operator === "+"
+            ? Number(calc.num1) + Number(calc.num2)
+            : calc.operator === "-"
+            ? Number(calc.num1) - Number(calc.num2)
+            : calc.operator === "x"
+            ? Number(calc.num1) * Number(calc.num2)
+            : Number(calc.num1) / Number(calc.num2),
+      });
+      SetShowResult(true);
+      setShowSquare(true);
+    }
+    return
   }
 
   useEffect(() => {
@@ -117,6 +133,8 @@ function App() {
                 key={i}
                 onClick={number === "C"
                   ? handleClearClick
+                  : number === "C"
+                  ? handleDecimalClick
                   : handleNumberClick}/>
             )
           })}
